@@ -3,3 +3,9 @@ src/config/config.js
 FECkeypair.pem
 coverage/
 SEGAkeypair.pem
+public/bundle.js
+.env
+questions.csv
+product.csv
+answers.csv
+answers_photos.csv
