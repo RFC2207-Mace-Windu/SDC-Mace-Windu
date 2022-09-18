@@ -121,13 +121,18 @@ class QList extends React.Component {
       this.props.product !== prevProps.product &&
       this.props.product !== undefined
     ) {
-      axios.get("https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/qa/questions",
+      console.log('something')
+      // axios.get("https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/qa/questions",
+      axios.get(`http://localhost:8080/qa/questions`,
           {
-            headers: { Authorization: `${API_KEY}` },
+            // headers: { Authorization: `${API_KEY}` },
             params: { count: 10, page: 1, product_id: this.props.product.id },
           }
         )
-        .then((res) => this.setState({ productQ: res.data }))
+        .then((res) => {
+          console.log('panda = ', res)
+          this.setState({ productQ: res.data })
+        })
         .catch((err) => console.log(err));
       this.setState({ questionArr: [] });
       setTimeout(this.sortQuestions, 1000);

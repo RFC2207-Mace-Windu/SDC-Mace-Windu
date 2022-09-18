@@ -101,9 +101,10 @@ class AnswerComp extends React.Component {
 
   componentDidMount() {
     if (this.props.quesID !== undefined) {
-        axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/qa/questions/${this.props.quesID}/answers`,
+        // axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/qa/questions/${this.props.quesID}/answers`,
+        axios.get(`http://localhost:8080/qa/questions/${this.props.quesID}/answers`,
         {
-          headers: { Authorization: `${API_KEY}` },
+          // headers: { Authorization: `${API_KEY}` },
           params: { count: 5, page: 1, question_id: this.props.quesID },
         }
       )
