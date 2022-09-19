@@ -41,7 +41,7 @@ class App extends React.Component {
     //   console.log(err));
 
     this.setState({product:
-     { "id": 3,
+     { "id": 4,
       "name": "Morning Joggers",
       "slogan": "Make yourself a morning person",
       "description": "Whether you're a morning person or not. Whether you're gym bound or not. Everyone looks good in joggers.",

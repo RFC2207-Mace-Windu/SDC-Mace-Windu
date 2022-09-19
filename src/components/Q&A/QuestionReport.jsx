@@ -18,9 +18,8 @@ class QuestionReport extends React.Component {
     console.log(temp);
     axios
       .put(
-        `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/qa/questions/${temp}/report`,
-        {},
-        { headers: { Authorization: `${API_KEY}` } }
+        `http://localhost:8080/qa/questions/${temp}/report`,
+        {}
       )
       .then((res) => {
         console.log(res);

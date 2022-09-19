@@ -28,14 +28,13 @@ class AddAnswer extends React.Component {
     var tempID = parseInt(this.props.qID);
     axios
       .post(
-        `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/qa/questions/${tempID}/answers`,
+        `http://localhost:8080/qa/questions/${tempID}/answers`,
         {
           body: this.state.aBody,
           name: this.state.aName,
           email: this.state.aEmail,
           photos: this.state.aPhotos,
-        },
-        { headers: { Authorization: `${API_KEY}` } }
+        }
       )
       .then((res) => {
         console.log(res);

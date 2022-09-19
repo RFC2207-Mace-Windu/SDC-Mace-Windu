@@ -15,7 +15,7 @@ CREATE TABLE questions (
   asker_name text,
   asker_email text,
   reported BOOLEAN DEFAULT '0',
-  question_helpfulness INT,
+  question_helpfulness INT DEFAULT 0,
   FOREIGN KEY (product_id)
   references products(product_id)
 );
@@ -28,7 +28,7 @@ CREATE TABLE answers (
   answerer_name text,
   answerer_email text,
   reported BOOLEAN DEFAULT '0',
-  helpfulness INT,
+  helpfulness INT DEFAULT 0,
   FOREIGN KEY (question_id)
   references questions(question_id)
 );

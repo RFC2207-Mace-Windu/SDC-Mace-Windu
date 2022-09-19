@@ -17,9 +17,8 @@ class AnswerReport extends React.Component {
     var temp = parseInt(this.state.currentAns.answer_id);
     axios
       .put(
-        `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/qa/answers/${temp}/report`,
-        {},
-        { headers: { Authorization: `${API_KEY}` } }
+        `http://localhost:8080/qa/answers/${temp}/report`,
+        {}
       )
       .then((res) => {
         console.log(res);

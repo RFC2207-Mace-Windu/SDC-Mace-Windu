@@ -22,9 +22,10 @@ class QuestionComp extends React.Component {
     var questionID = parseInt(qObj.question_id);
     axios
       .put(
-        `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/qa/questions/${questionID}/helpful`,
-        {},
-        { headers: { Authorization: `${API_KEY}` } }
+        // `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/qa/questions/${questionID}/helpful`,
+        `http://localhost:8080/qa/questions/${questionID}/helpful`,
+        {}
+        // { headers: { Authorization: `${API_KEY}` } }
       )
       .then((res) => {
         console.log(res);

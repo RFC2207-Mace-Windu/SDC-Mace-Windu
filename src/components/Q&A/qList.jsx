@@ -121,7 +121,6 @@ class QList extends React.Component {
       this.props.product !== prevProps.product &&
       this.props.product !== undefined
     ) {
-      console.log('something')
       // axios.get("https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/qa/questions",
       axios.get(`http://localhost:8080/qa/questions`,
           {
@@ -130,7 +129,7 @@ class QList extends React.Component {
           }
         )
         .then((res) => {
-          console.log('panda = ', res)
+          // console.log('panda = ', res)
           this.setState({ productQ: res.data })
         })
         .catch((err) => console.log(err));

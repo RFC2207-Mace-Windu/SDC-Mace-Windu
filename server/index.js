@@ -66,6 +66,73 @@ app.get('/qa/questions/:question_id/answers', (req, res) => {
   })
 })
 
+app.put('/qa/questions/:question_id/helpful', (req, res) => {
+  Questions.increaseQuestionHelpfulness(req.params.question_id)
+  .then(() => {
+    res.status(204).send();
+  })
+  .catch(err => {
+    console.error(err);
+    res.status(404).send(err);
+  })
+})
+
+app.put('/qa/answers/:answer_id/helpful', (req, res) => {
+  Questions.increaseAnswerHelpfulness(req.params.answer_id)
+  .then(() => {
+    res.status(204).send();
+  })
+  .catch(err => {
+    console.error(err);
+    res.status(404).send(err);
+  })
+})
+
+app.put('/qa/answers/:answer_id/report', (req, res) => {
+  Questions.reportAnswer(req.params.answer_id)
+  .then(() => {
+    res.status(204).send();
+  })
+  .catch(err => {
+    console.error(err);
+    res.status(404).send(err);
+  })
+})
+
+app.post('/qa/questions/:question_id/answers', (req, res) => {
+  console.log('show req.params = ', req.params);
+  console.log('show req.body = ', req.body);
+  const questionId = req.params.question_id;
+  const newAnswer = {
+    body: req.body.body,
+    date: new Date().getTime(),
+    answerer_name: req.body.name,
+    answerer_email: req.body.email
+  }
+  console.log('show newAnswer & questionId = ', newAnswer, questionId);
+  Questions.addAnswer(questionId, newAnswer)
+  .then(response => {
+    res.status(201).send(response.data);
+  })
+  .catch(err => console.log(err));
+})
+
+app.post('/qa/questions', (req, res) => {
+  console.log('show question req.body = ', req.body);
+  const newQuestion = {
+    product_id: req.body.product_id,
+    question_body: req.body.body,
+    question_date: new Date().getTime(),
+    asker_name: req.body.name,
+    asker_email: req.body.email
+  }
+  Questions.addQuestion(newQuestion)
+  .then(response => {
+    res.status(201).send(response.data);
+  })
+  .catch(err => console.log(err));
+})
+
 const PORT = 8080;
 
 app.listen(PORT);

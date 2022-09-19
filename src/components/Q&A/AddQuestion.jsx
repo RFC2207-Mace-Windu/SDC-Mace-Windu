@@ -30,14 +30,13 @@ class AddQuestion extends React.Component {
     console.log(tempID);
     axios
       .post(
-        "https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/qa/questions",
+        "http://localhost:8080/qa/questions",
         {
           body: this.state.qBody,
           name: this.state.qName,
           email: this.state.qEmail,
           product_id: tempID,
-        },
-        { headers: { Authorization: `${API_KEY}` } }
+        }
       )
       .then((res) => {
         console.log(res);
