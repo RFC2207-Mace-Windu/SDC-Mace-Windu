@@ -4,14 +4,20 @@ const sql = require('./qadb.js');
 const Questions = require('./models/Questions.js');
 var cors = require('cors')
 
+app.use(cors());
 app.use(express.urlencoded({
   extended: true,
 }));
 app.use(express.json());
 app.use(express.static('./public'));
-app.use(cors());
+
+app.get('/test', (req, res) => {
+  console.log('hello!')
+  res.status(200).send()
+})
 
 app.get('/qa/questions', (req, res) => {
+  console.log('panda!')
   var product_id = req.query.product_id
   var page = req.query.page || 1;
   var count = req.query.count || 5;
@@ -118,7 +124,6 @@ app.post('/qa/questions/:question_id/answers', (req, res) => {
 })
 
 app.post('/qa/questions', (req, res) => {
-  console.log('show question req.body = ', req.body);
   const newQuestion = {
     product_id: req.body.product_id,
     question_body: req.body.body,
@@ -126,6 +131,7 @@ app.post('/qa/questions', (req, res) => {
     asker_name: req.body.name,
     asker_email: req.body.email
   }
+  console.log('show new question = ', newQuestion);
   Questions.addQuestion(newQuestion)
   .then(response => {
     res.status(201).send(response.data);
