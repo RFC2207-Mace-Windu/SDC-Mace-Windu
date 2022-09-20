@@ -37,7 +37,6 @@ describe('Questions API Tests', () => {
         .catch((err) => {
           throw err;
         })
-        console.log('show result =', result)
       expect(result.status).toEqual(204);
     })
 
@@ -50,7 +49,6 @@ describe('Questions API Tests', () => {
         .catch((err) => {
           throw err;
         })
-        console.log('show result =', result)
       expect(result.status).toEqual(204);
     })
 
@@ -68,7 +66,6 @@ describe('Questions API Tests', () => {
         .catch((err) => {
           throw err;
         })
-        console.log('show result =', result)
       expect(result.status).toEqual(201);
     })
 
@@ -85,7 +82,6 @@ describe('Questions API Tests', () => {
         .catch((err) => {
           throw err;
         })
-        console.log('show result =', result)
       expect(result.status).toEqual(201);
     })
 })

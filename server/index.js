@@ -11,13 +11,7 @@ app.use(express.urlencoded({
 app.use(express.json());
 app.use(express.static('./public'));
 
-app.get('/test', (req, res) => {
-  console.log('hello!')
-  res.status(200).send()
-})
-
 app.get('/qa/questions', (req, res) => {
-  console.log('panda!')
   var product_id = req.query.product_id
   var page = req.query.page || 1;
   var count = req.query.count || 5;
@@ -59,7 +53,7 @@ app.get('/qa/questions/:question_id/answers', (req, res) => {
       }
       return test
     }))
-    console.log('show result =', answerData)
+    // console.log('show result =', answerData)
     res.status(200).send({
       question: question_id,
       page: page,
@@ -106,8 +100,8 @@ app.put('/qa/answers/:answer_id/report', (req, res) => {
 })
 
 app.post('/qa/questions/:question_id/answers', (req, res) => {
-  console.log('show req.params = ', req.params);
-  console.log('show req.body = ', req.body);
+  // console.log('show req.params = ', req.params);
+  // console.log('show req.body = ', req.body);
   const questionId = req.params.question_id;
   const newAnswer = {
     body: req.body.body,
@@ -115,7 +109,7 @@ app.post('/qa/questions/:question_id/answers', (req, res) => {
     answerer_name: req.body.name,
     answerer_email: req.body.email
   }
-  console.log('show newAnswer & questionId = ', newAnswer, questionId);
+  // console.log('show newAnswer & questionId = ', newAnswer, questionId);
   Questions.addAnswer(questionId, newAnswer)
   .then(response => {
     res.status(201).send(response.data);
@@ -131,7 +125,7 @@ app.post('/qa/questions', (req, res) => {
     asker_name: req.body.name,
     asker_email: req.body.email
   }
-  console.log('show new question = ', newQuestion);
+  // console.log('show new question = ', newQuestion);
   Questions.addQuestion(newQuestion)
   .then(response => {
     res.status(201).send(response.data);
