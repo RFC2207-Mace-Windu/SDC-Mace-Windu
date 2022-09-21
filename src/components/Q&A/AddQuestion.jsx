@@ -30,7 +30,7 @@ class AddQuestion extends React.Component {
     console.log(tempID);
     axios
       .post(
-        "http://localhost:8080/qa/questions",
+        "http://3.83.131.32:8080/qa/questions",
         {
           body: this.state.qBody,
           name: this.state.qName,

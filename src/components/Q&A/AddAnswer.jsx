@@ -28,7 +28,7 @@ class AddAnswer extends React.Component {
     var tempID = parseInt(this.props.qID);
     axios
       .post(
-        `http://localhost:8080/qa/questions/${tempID}/answers`,
+        `http://3.83.131.32:8080/qa/questions/${tempID}/answers`,
         {
           body: this.state.aBody,
           name: this.state.aName,

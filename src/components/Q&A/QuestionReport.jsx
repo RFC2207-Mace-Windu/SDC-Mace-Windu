@@ -18,7 +18,7 @@ class QuestionReport extends React.Component {
     console.log(temp);
     axios
       .put(
-        `http://localhost:8080/qa/questions/${temp}/report`,
+        `http://3.83.131.32:8080/qa/questions/${temp}/report`,
         {}
       )
       .then((res) => {

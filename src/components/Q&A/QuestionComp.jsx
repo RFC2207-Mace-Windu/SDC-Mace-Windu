@@ -23,7 +23,7 @@ class QuestionComp extends React.Component {
     axios
       .put(
         // `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/qa/questions/${questionID}/helpful`,
-        `http://localhost:8080/qa/questions/${questionID}/helpful`,
+        `http://3.83.131.32:8080/qa/questions/${questionID}/helpful`,
         {}
         // { headers: { Authorization: `${API_KEY}` } }
       )

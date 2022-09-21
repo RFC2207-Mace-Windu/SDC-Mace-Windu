@@ -122,7 +122,7 @@ class QList extends React.Component {
       this.props.product !== undefined
     ) {
       // axios.get("https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/qa/questions",
-      axios.get(`http://localhost:8080/qa/questions`,
+      axios.get(`http://3.83.131.32:8080/qa/questions`,
           {
             // headers: { Authorization: `${API_KEY}` },
             params: { count: 10, page: 1, product_id: this.props.product.id },

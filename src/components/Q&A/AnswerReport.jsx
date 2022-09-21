@@ -17,7 +17,7 @@ class AnswerReport extends React.Component {
     var temp = parseInt(this.state.currentAns.answer_id);
     axios
       .put(
-        `http://localhost:8080/qa/answers/${temp}/report`,
+        `http://3.83.131.32:8080/qa/answers/${temp}/report`,
         {}
       )
       .then((res) => {
